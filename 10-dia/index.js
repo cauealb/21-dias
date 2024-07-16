@@ -4,50 +4,69 @@ let nome, opcao
 let primeiraVez = true
 let cont = 0
 
-// while(primeiraVez){
-//     opcao = prompt('Olá, bem vindo ao adicionar de array, deseja inserir um número?\n1 - Sim\n2 - Não')
-//     if(opcao === '2'){
-//         alert(array)
-//         primeiraVez = false
-//         break;
-//     }else{
-//         primeiraVez = false
-//         while(!primeiraVez){
-//             nome = parseInt(prompt('Digite o item que quer inserir: '))
-//             array.push(nome)
-//             cont++
-//             if(array.length > 10){
-//                 alert('Seu array possui 10 números máximos!')
-//                 alert(array)
-//                 break;
-//             }else{
-//                 nome = prompt('Deseja continuar: \n1 - Sim\n2 - Não')
-//             if(nome === '2'){
-//                 alert(array)
-//                 break;
-//                 }
-//             }
-//         }
-//     }
-// }
+while(primeiraVez){
+    opcao = prompt('Olá, bem vindo ao adicionar de array, deseja inserir um número?\n1 - Sim\n2 - Não')
+    if(opcao === '2'){
+        alert(array)
+        primeiraVez = false
+        break;
+    }else{
+        primeiraVez = false
+        while(!primeiraVez){
+            nome = parseInt(prompt('Digite o item que quer inserir: '))
+            array.push(nome)
+            cont++
+            if(array.length > 10){
+                alert('Seu array possui 10 números máximos!')
+                alert(array)
+                break;
+            }else{
+                nome = prompt('Deseja continuar: \n1 - Sim\n2 - Não')
+            if(nome === '2'){
+                alert(array)
+                break;
+                }
+            }
+        }
+    }
+}
 
-// while(!primeiraVez){
-//     cont = -1
-//     opcao = parseInt(prompt('Digite o número buscado: '))
-//     for(let i of array){
-//         cont++
-//         if(i === opcao){
-//             alert(`O número ${i} tem o indice ${cont}`)
-//             primeiraVez = true
-//             continue;
-//         }
-//     }
-//     if(!primeiraVez){
-//         alert('Esse número não existe!')
-//         break;
-//     }
+while(!primeiraVez){
+    cont = -1
+    opcao = parseInt(prompt('Digite o número buscado: '))
+    for(let i of array){
+        cont++
+        if(i === opcao){
+            alert(`O número ${i} tem o indice ${cont}`)
+            primeiraVez = true
+            continue;
+        }
+    }
+    if(!primeiraVez){
+        alert('Esse número não existe!')
+        break;
+    }
     
-// }
+}
+
+function pesquisaBinaria(item){
+    let baixo = 0
+    let alto = length(array) - 1
+    let meio
+
+    while (baixo < alto){
+        meio = (baixo + alto) / 2
+        if(item === meio){
+            return alert(`${item} tem o indice ${array.indexOf(item)}`)
+        }
+        if(item < meio){
+            alto = meio -1
+        }else if(item > maior){
+            baixo = meio - 1
+        }
+    }
+    return alert(`${item} tem o indice ${array.indexOf(item)}`)
+}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Desafio 2
 
