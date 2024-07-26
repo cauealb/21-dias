@@ -152,13 +152,18 @@ switch (opcao){
         do {
             opcao = prompt('Deseja Repartir suas senhas apartir de qual senha:')
 
-            findName = nomeArray(n => {if(n === nome) return true})
+            findName = nomeArray(n => {if(n === opcao) index = nomeArray.indexOf(opcao)})
 
-            if(findName){
-
+            if(findName > 0){
+                repartir = nomeArray.slice(index)
+                opcao = prompt('Deseja exibir exebir esses dados?\n1 - S\n2 - N')
+                if(opcao === 'S'){
+                    alert(`Repartição nova: ${repartir}`)
+                }
             }
 
-        } while (condition);
+            opcao = prompt('Desja continuar\n1 - S\n2 - N')
+        } while (opcao === 'S');
 
         break;
 
