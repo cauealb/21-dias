@@ -1,11 +1,11 @@
 let nomeArray = new Array()
 let senhasArray = new Array()
-let opcao, nome, senha
+let opcao, nome, senha, repartir
 let index = -1
 let findName = false
 
 while(opcao != 4){
-    opcao = prompt("Bem-Vindo Usuário, deseje fazer o que?\n1 - Cadastrar Usuário\n2 - Fazer Login\n3 - Excluir login\n4 - Sair")
+    opcao = prompt("Bem-Vindo Usuário, deseje fazer o que?\n1 - Cadastrar Usuário\n2 - Fazer Login\n3 - Excluir login\n4 - Adicionar na Primeira Posição\n5 - Eliminar na primeira Posição\n6 - Repartir as Senhas\n7 - Sair")
 
 switch (opcao){
     case '1':
@@ -108,7 +108,64 @@ switch (opcao){
 
 
     case '4':
-        alert('Programa Fechado!')
+       
+        do {
+            nome = prompt('Digite o usuário que queira cadastrar:')
+            senha = prompt('Digite a senha desse usuário:')
+
+            nomeArray.unshift(nome);
+            senhasArray.unshift(senha);
+
+            opcao = prompt('Deseja visulizar seus dados? (S/N)')
+            if(opcao === 'S'){
+                alert(`Usuários: ${nomeArray}`)
+                alert(`Senhas: ${senhasArray}`)
+            }
+
+            opcao = prompt('Deseja realmente adicionar um usuário e uma senha no começo das outras:\n1 - S\n2 - N')
+        } while (opcao === 'S');
+
+        break;
+
+    case '5':
+        do {
+            nome = prompt('Digite o usuário que queira cadastrar:')
+            senha = prompt('Digite a senha desse usuário:')
+
+            nomeArray.shift()
+            senhasArray.shift()
+
+            opcao = prompt('Deseja visulizar seus dados? (S/N)')
+            if(opcao === 'S'){
+                alert(`Usuários: ${nomeArray}`)
+                alert(`Senhas: ${senhasArray}`)
+            }
+
+            opcao = prompt('Deseja realmente adicionar um usuário e uma senha no começo das outras:\n1 - S\n2 - N')
+
+        } while (opcao === 'S');
+
+        break;
+
+
+    case '6':
+        do {
+            opcao = prompt('Deseja Repartir suas senhas apartir de qual senha:')
+
+            findName = nomeArray(n => {if(n === nome) return true})
+
+            if(findName){
+
+            }
+
+        } while (condition);
+
+        break;
+
+
+    case '7':
+
+
         break;
 
     default:
@@ -117,6 +174,11 @@ switch (opcao){
 }
 }
 
+
+
+// AFAZERES
+// TERMINAR OPERAÇÕES
+// FAZER UMA FUNÇÃO
 
 
 

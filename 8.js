@@ -1,10 +1,4 @@
-let nomeArray = new Array('Melancia', 'Abóbora', 'Beterraba', 'Banana')
+// Shift, Unshift, slice
 
-let nome = 'PerÂ'
-const findName = nomeArray.find(n => {if(n === nome) return true})
+alert('Digite a opção desejada\n1 - Adicionar\n2 - Eliminar')
 
-if(findName){
-    alert('sim')
-}else{
-    alert('Naop')
-}
