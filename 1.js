@@ -4,8 +4,8 @@ let opcao, nome, senha
 let index = -1
 let findName = false
 
-while(true){
-    opcao = prompt("Bem-Vindo Usuário, deseje fazer o que?\n1 - Cadastrar Usuário\n2 - Fazer Login\n3 - Excluir login")
+while(opcao != 4){
+    opcao = prompt("Bem-Vindo Usuário, deseje fazer o que?\n1 - Cadastrar Usuário\n2 - Fazer Login\n3 - Excluir login\n4 - Sair")
 
 switch (opcao){
     case '1':
@@ -77,31 +77,39 @@ switch (opcao){
 
 
     case '3':
-        
-        do {
+        if(nomeArray.length == 0){
+            alert('Nenhum usuário em seu Banco de Dados!')
+        }else{
             do {
-                nome = prompt('Digite o usuário que queira excluir \n(ele excluirá automáticamente o usario e senha)')
-                findName = nomeArray.find(n => {if(n === nome) index = nomeArray.indexOf(nome)} )
+                do {
+                    nome = prompt('Digite o usuário que queira excluir \n(ele excluirá automáticamente o usario e senha)')
+                    findName = nomeArray.find(n => {if(n === nome) index = nomeArray.indexOf(nome)} )
         
-                if(index <0){
-                    alert('Usuário incorreto! Digite Novamente.')
+                    if(index < 0){
+                        alert('Usuário incorreto! Digite Novamente.')
+                    }else{
+                        nomeArray.splice(index, 1)
+                        senhasArray.splice(index, 1)
+                    }   
+        
+                } while (index < 0);
+        
+        
+                if(nomeArray.length <= 0){
+                    alert('Nenhum usuário em seu Banco de Dados!')
+                    opcao = 'Não'
                 }else{
-                    nomeArray.splice(index, 1)
-                    senhasArray.splice(index, 1)
+                    opcao = prompt('Deseje Continuar?\n1 - Sim\n2 - Não')
                 }
-        
-            } while (findName < 0);
-        
-        
-            if(nomeArray.length <= 0){
-                alert('Nenhum usuário em seu Banco de Dados!')
-                opcao = 'Não'
-            }else{
-                opcao = prompt('Deseje Continuar?\n1 - Sim\n2 - ')
-            }
-        } while (opcao === 'Sim');
+            } while (opcao === 'S');
+            
+        }
         break;
-    
+
+
+    case '4':
+        alert('Programa Fechado!')
+        break;
 
     default:
         alert('Erro ao entrar!')
