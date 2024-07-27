@@ -4,7 +4,7 @@ let opcao, nome, senha, repartir
 let index = -1
 let findName = false
 
-while(opcao != 4){
+while(opcao != 7){
     opcao = prompt("Bem-Vindo Usuário, deseje fazer o que?\n1 - Cadastrar Usuário\n2 - Fazer Login\n3 - Excluir login\n4 - Adicionar na Primeira Posição\n5 - Eliminar na primeira Posição\n6 - Repartir as Senhas\n7 - Sair")
 
 switch (opcao){
@@ -113,8 +113,8 @@ switch (opcao){
             nome = prompt('Digite o usuário que queira cadastrar:')
             senha = prompt('Digite a senha desse usuário:')
 
-            nomeArray.unshift(nome);
-            senhasArray.unshift(senha);
+            nomeArray.unshift(nome)
+            senhasArray.unshift(senha)
 
             opcao = prompt('Deseja visulizar seus dados? (S/N)')
             if(opcao === 'S'){
@@ -122,42 +122,52 @@ switch (opcao){
                 alert(`Senhas: ${senhasArray}`)
             }
 
-            opcao = prompt('Deseja realmente adicionar um usuário e uma senha no começo das outras:\n1 - S\n2 - N')
+            opcao = prompt('Deseja adicionar mais :\n1 - S\n2 - N')
         } while (opcao === 'S');
 
         break;
+
+
 
     case '5':
         do {
-            nome = prompt('Digite o usuário que queira cadastrar:')
-            senha = prompt('Digite a senha desse usuário:')
+            while (findName == false || opcao == false) {
+                nome = prompt('Digite o usuário que queira eliminar:')
+                senha = prompt('Digite a senha desse usuário:')
 
-            nomeArray.shift()
-            senhasArray.shift()
-
-            opcao = prompt('Deseja visulizar seus dados? (S/N)')
-            if(opcao === 'S'){
-                alert(`Usuários: ${nomeArray}`)
-                alert(`Senhas: ${senhasArray}`)
-            }
-
-            opcao = prompt('Deseja realmente adicionar um usuário e uma senha no começo das outras:\n1 - S\n2 - N')
+                findName = nomeArray.find(n => {if(n === nome) return true})
+                opcao = senhasArray.find(m => {if(m === senha) return true})
+                    
+                if((findName == true) && (opcao = true)){
+                    opcao = prompt('Deseja visualizar seus dados? (S/N)')
+                    if(opcao === 'S'){
+                        alert(`Usuários: ${nomeArray}`)
+                        alert(`Senhas: ${senhasArray}`)
+                    }
+                }else{
+                    alert('Usuário ou senha errados!')
+                    }
+                }
+                
+            opcao = prompt('Deseja adicionar mais:\n1 - S\n2 - N')
 
         } while (opcao === 'S');
 
         break;
+
 
 
     case '6':
         do {
-            opcao = prompt('Deseja Repartir suas senhas apartir de qual senha:')
+            opcao = prompt('Apartir de qual usuário deseja repartir:')
 
             findName = nomeArray(n => {if(n === opcao) index = nomeArray.indexOf(opcao)})
 
-            if(findName > 0){
+            if(findName >= 0){
                 repartir = nomeArray.slice(index)
                 opcao = prompt('Deseja exibir exebir esses dados?\n1 - S\n2 - N')
                 if(opcao === 'S'){
+                    alert(`Array de usuários normais: ${nomeArray}`)
                     alert(`Repartição nova: ${repartir}`)
                 }
             }
@@ -169,7 +179,7 @@ switch (opcao){
 
 
     case '7':
-
+        alert('Obrigado pela preferência')
 
         break;
 
@@ -178,12 +188,6 @@ switch (opcao){
 
 }
 }
-
-
-
-// AFAZERES
-// TERMINAR OPERAÇÕES
-// FAZER UMA FUNÇÃO
 
 
 
